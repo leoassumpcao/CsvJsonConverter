@@ -1,0 +1,80 @@
+﻿<Window x:Class="CsvJsonConverter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CsvJsonConverter"
+        mc:Ignorable="d"
+        Title="CSV to JSON" Height="530" Width="850"
+        SizeToContent="WidthAndHeight">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="161*"/>
+            <ColumnDefinition Width="391*"/>
+            <ColumnDefinition Width="190*"/>
+            <ColumnDefinition Width="103*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.ColumnSpan="4">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0 5 0 0">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                    <Label Content="Select file" VerticalAlignment="Center" />
+                    <TextBox Name="txtChooseFile" Text="No file chosen" Width="150" Height="25" VerticalAlignment="Center" IsReadOnly="True" />
+                    <Button Name="bttChooseFile" Content="Choose" VerticalAlignment="Center" Click="bttChooseFile_Click" Width="60" Height="30" Margin="5 0 0 0" FontSize="13" />
+                </StackPanel>
+                <StackPanel Margin="20 5 0 0" Orientation="Horizontal" VerticalAlignment="Top">
+                    <Label Content="Separator" VerticalAlignment="Center" />
+                    <ComboBox Name="cmbSeparator" Width="120" Height="30" SelectionChanged="cmbSeparator_SelectionChanged">
+                        <ComboBoxItem Content="Auto-detect" IsSelected="True" />
+                        <ComboBoxItem Content="Comma" />
+                        <ComboBoxItem Content="Semi-colon" />
+                        <ComboBoxItem Content="Tab" />
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Margin="20 5 0 0" Orientation="Horizontal" VerticalAlignment="Top">
+                    <CheckBox Name="chkParseNumbers" Content="Parse numbers" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Margin="40 0 0 0" Orientation="Horizontal" VerticalAlignment="Top">
+                    <Label Padding="0">
+                        <TextBlock>Credits to Leonardo Assumpção
+                            <LineBreak/>
+                            (leonardo_assumpcao@outlook.com)
+                            <LineBreak/>
+                            <TextBlock FontSize="10">
+                                <Hyperlink
+                                    Name="hyperlinkGithub"
+                                    NavigateUri="https://github.com/leoassumpcao/CsvJsonConverter"
+                                    RequestNavigate="hyperlinkGithub_RequestNavigate">
+                                    github.com/leoassumpcao/CsvJsonConverter/
+                                </Hyperlink>
+                            </TextBlock>
+                        </TextBlock>
+                    </Label>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 0" Width="Auto">
+                <StackPanel Margin="5 0 0 0" Orientation="Vertical">
+                    <Label Content="Or paste your CSV here"/>
+                    <TextBox Name="txtCSV" TextWrapping="Wrap" AcceptsTab="True" AcceptsReturn="True" Width="410" VerticalAlignment="Center" Height="355" />
+                </StackPanel>
+                <StackPanel Margin="20 0 5 0" Orientation="Vertical">
+                    <Label Content="JSON"/>
+                    <TextBox Name="txtJSON" TextWrapping="Wrap" AcceptsReturn="True" Width="410" VerticalAlignment="Center" Height="355" />
+                </StackPanel>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0 5 5 5">
+                <StackPanel Margin="15 0 0 0" Orientation="Horizontal">
+                    <Button Name="bttConvert" Content="Convert" Click="bttConvert_Click" Width="100" Height="30"/>
+                    <Button Name="bttClear" Content="Clear" Margin="20 0 0 0" Click="bttClear_Click" Width="100" Height="30" />
+                </StackPanel>
+                <StackPanel Margin="200 0 0 0" Orientation="Horizontal">
+                    <Button Name="bttSave" Content="Save" Width="100" Height="30" Click="bttSave_Click" />
+                    <Button Name="bttCopyToClipboard" Content="Copy to clipboard" Margin="20 0 0 0" Width="110" Height="30" Click="bttCopyToClipboard_Click"/>
+                    <Button Name="bttFormatJson" Content="Format JSON" Margin="20 0 0 0" Width="100" Height="30" Click="bttFormatJson_Click" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+
+    </Grid>
+</Window>
