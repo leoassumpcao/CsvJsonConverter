@@ -24,7 +24,7 @@ namespace CsvJsonConverter
 
             if (!regexDecimal.IsMatch(str) ||
                 !decimal.TryParse(str, NumberStyles.Any, CultureInfo.InvariantCulture, out var decimalResult) ||
-                str.StartsWith('0')
+                (str.StartsWith('0') && decimalResult != 0)
             )
             {
                 writer.WriteValue(str.ToString());
