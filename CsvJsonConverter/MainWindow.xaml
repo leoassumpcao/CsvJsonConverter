@@ -31,7 +31,7 @@
                     </ComboBox>
                 </StackPanel>
                 <StackPanel Margin="20 5 0 0" Orientation="Horizontal" VerticalAlignment="Top">
-                    <CheckBox Name="chkParseNumbers" Content="Parse numbers" VerticalAlignment="Center"/>
+                    <CheckBox Name="chkParseNumbers" Content="Parse numbers" VerticalAlignment="Center" IsChecked="True" />
                 </StackPanel>
                 <StackPanel Margin="40 0 0 0" Orientation="Horizontal" VerticalAlignment="Top">
                     <Label Padding="0">
